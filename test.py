@@ -10,4 +10,4 @@ datax = {}
 datax['Alkawal Kessal'] = {}
 datax['Alkawal Kessal']['MARKUS'] = {}
 datax['Alkawal Kessal']['MARKUS']['1'] = "Linjila bana no Markus windi doum"
-print(datax)
+print(datax['Alkawal Kessal'])
