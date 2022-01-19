@@ -5,11 +5,13 @@ import requests
 import codecs
 from bs4 import BeautifulSoup
 
-books = ["MAT-28-Matta", "MRK-16-Markus", "LUK-24-Luka", "JHN-21-Yuhanna", "ACT-28-Kuude Neelabe"]
+books = ["MAT-28-Matta", "MRK-16-Markus", "LUK-24-Luka",
+         "JHN-21-Yuhanna", "ACT-28-Kuude Neelabe"]
 BASE_LINK = "https://my.bible.com/fr/bible/906/"
 
 bible_json = {
-    "Alkawal Kessal": {}
+    "Alkawal Kessal": {},
+    "Alkawal Kidngal": {}
 }
 
 for book in books:
@@ -31,20 +33,20 @@ for book in books:
         print("TOTAL VERSES", total_verses)
         # for verse_index in range(total_verses):
         #     print(verse_tags[verse_index].text)
-            # if verse_tags[verse_index].text == " " or ". " or ".”" or "." or ": ":
-            #     verse_tags.pop(verse_index)
-
-       
+        # if verse_tags[verse_index].text == " " or ". " or ".”" or "." or ": ":
+        #     verse_tags.pop(verse_in dex)
 
         for index in range(total_verses):
             print(index + 1)
             print(": " + verse_tags[index].text)
             # if(verse_tags[index].text not in [" ", ". ", ".", ", ", "!", ".”", ": "]):
-            bible_json["Alkawal Kessal"][book_name][chapter_name][str(index)] = verse_tags[index].text
-     
+            bible_json["Alkawal Kessal"][book_name][chapter_name][str(
+                index)] = verse_tags[index].text
+
 
 with codecs.open("bible.json", "w", "utf-8") as bible:
-        pretty_json = json.dumps(bible_json, sort_keys = False, indent = 4, ensure_ascii=False)
-        data_written = json.loads(pretty_json)
-        bible.write(pretty_json)
-        print(pretty_json)
+    pretty_json = json.dumps(bible_json, sort_keys=False,
+                             indent=4, ensure_ascii=False)
+    data_written = json.loads(pretty_json)
+    bible.write(pretty_json)
+    print(pretty_json)
