@@ -13,6 +13,16 @@
 # print(datax['Alkawal Kessal'])
 
 import requests
-
-res = requests.get("https://my.bible.com/fr/bible/906/GEN.1.FB")
-print(res)
+from bs4 import BeautifulSoup
+header = {
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36",
+    'referer': 'https://www.google.com/'
+}
+res = requests.get(
+    "https://my.bible.com/fr/bible/906/GEN.12.FB", headers=header)
+response = requests.get("https://twitter.com/home")
+soup = BeautifulSoup(res.text, "html.parser")
+pretty_soup = soup.prettify()
+verse_tags = soup.findAll("span", {"class": "content"})
+total_verses = len(verse_tags)
+print(f"TOTAL VERSES : {total_verses}")
