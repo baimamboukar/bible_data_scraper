@@ -28,14 +28,13 @@ for book in books:
 
         verse_tags = soup.findAll("span", {"class": "content"})
         total_verses = len(verse_tags)
-        print("TOTAL VERSES", total_verses)
+        print(f"TOTAL VERSES : {total_verses}")
         # for verse_index in range(total_verses):
         #     print(verse_tags[verse_index].text)
         # if verse_tags[verse_index].text == " " or ". " or ".”" or "." or ": ":
         #     verse_tags.pop(verse_in dex)
 
         for index in range(total_verses):
-            print(index + 1)
             print(": " + verse_tags[index].text)
             # if(verse_tags[index].text not in [" ", ". ", ".", ", ", "!", ".”", ": "]):
             bible_json["Alkawal Kessal"][book_name][chapter_name][str(
