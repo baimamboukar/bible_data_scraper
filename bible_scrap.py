@@ -9,8 +9,7 @@ books = ["MAT-28-Matta", "MRK-16-Markus", "LUK-24-Luka",
 BASE_LINK = "https://my.bible.com/fr/bible/906/"
 
 bible_json = {
-    "Alkawal Kessal": {},
-    "Alkawal Kidngal": {}
+    "Alkawal Kessal": {}
 }
 
 for book in books:
@@ -49,3 +48,7 @@ with codecs.open("biblee.json", "w", "utf-8") as bible:
     data_written = json.loads(pretty_json)
     bible.write(pretty_json)
     print(pretty_json)
+
+
+if __name__ == "__main__":
+    print("Scraping...")
